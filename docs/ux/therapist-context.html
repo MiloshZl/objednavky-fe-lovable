@@ -1,0 +1,144 @@
+<style>
+#rehaflex-context-proposal { --rf-bg:light-dark(#f7f8f6,#18211f); --rf-panel:light-dark(#fff,#222e2a); --rf-text:light-dark(#253b34,#e8f1ed); --rf-muted:light-dark(#5d6f67,#b5c7be); --rf-line:light-dark(#dce4df,#44554d); --rf-own:light-dark(#286e67,#9cdbcf); --rf-own-bg:light-dark(#e8f3ef,#263f38); --rf-other:light-dark(#70509b,#d0b5f4); --rf-other-bg:light-dark(#f1ebf8,#392e48); --rf-neutral:light-dark(#51616a,#bdd0dc); --rf-neutral-bg:light-dark(#edf1f3,#2b383f); color:var(--rf-text); font:14px/1.45 system-ui,sans-serif; }
+#rehaflex-context-proposal * { box-sizing:border-box; }
+#rehaflex-context-proposal [hidden] { display:none !important; }
+#rehaflex-context-proposal .rf-product { background:var(--rf-bg); border:1px solid var(--rf-line); border-radius:14px; overflow:clip; }
+#rehaflex-context-proposal .rf-chrome { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; padding:12px 18px; border-bottom:1px solid var(--rf-line); background:var(--rf-panel); }
+#rehaflex-context-proposal .rf-brand { font-weight:650; letter-spacing:.07em; }
+#rehaflex-context-proposal .rf-account { font-size:12px; color:var(--rf-muted); }
+#rehaflex-context-proposal .rf-content { padding:18px; }
+#rehaflex-context-proposal button, #rehaflex-context-proposal select { font:inherit; cursor:pointer; }
+#rehaflex-context-proposal button { padding:7px 12px; min-height:34px; border-radius:7px; border:1px solid var(--rf-line); color:var(--rf-text); background:var(--rf-panel); }
+#rehaflex-context-proposal .rf-switch { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+#rehaflex-context-proposal button[data-mode="own"] { --choice:var(--rf-own); --choice-bg:var(--rf-own-bg); }
+#rehaflex-context-proposal button[data-mode="other"] { --choice:var(--rf-other); --choice-bg:var(--rf-other-bg); }
+#rehaflex-context-proposal button[data-mode="both"] { --choice:var(--rf-neutral); --choice-bg:var(--rf-neutral-bg); }
+#rehaflex-context-proposal button[aria-pressed="true"] { border-color:var(--choice); background:var(--choice-bg); color:var(--choice); box-shadow:inset 0 0 0 1px var(--choice); }
+#rehaflex-context-proposal .rf-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--choice); margin-right:6px; }
+#rehaflex-context-proposal .rf-scope { --scope:var(--rf-other); --scope-bg:var(--rf-other-bg); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:var(--scope-bg); border-left:4px solid var(--scope); padding:12px 14px; border-radius:8px; }
+#rehaflex-context-proposal .rf-scope[data-scope="own"] { --scope:var(--rf-own); --scope-bg:var(--rf-own-bg); }
+#rehaflex-context-proposal .rf-scope[data-scope="both"] { --scope:var(--rf-neutral); --scope-bg:var(--rf-neutral-bg); }
+#rehaflex-context-proposal .rf-scope-label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--scope); font-weight:650; }
+#rehaflex-context-proposal h2 { margin:1px 0 0; font-size:20px; font-weight:650; color:var(--rf-text); }
+#rehaflex-context-proposal .rf-back { background:var(--rf-panel); border-color:var(--scope); color:var(--scope); padding:5px 9px; font-size:12px; }
+#rehaflex-context-proposal .rf-day { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; padding:14px 0; }
+#rehaflex-context-proposal .rf-day-label { font-weight:600; }
+#rehaflex-context-proposal .rf-book { background:var(--rf-text); color:var(--rf-panel); border-color:var(--rf-text); font-size:13px; }
+#rehaflex-context-proposal .rf-agenda { --scope:var(--rf-other); --scope-bg:var(--rf-other-bg); border-left:3px solid var(--scope); padding-left:10px; }
+#rehaflex-context-proposal .rf-agenda[data-owner="own"] { --scope:var(--rf-own); --scope-bg:var(--rf-own-bg); }
+#rehaflex-context-proposal .rf-agenda + .rf-agenda { margin-top:16px; }
+#rehaflex-context-proposal .rf-group-title { color:var(--scope); font-size:13px; font-weight:650; margin:0 0 7px; }
+#rehaflex-context-proposal .rf-visit { background:var(--rf-panel); border:1px solid var(--rf-line); border-radius:8px; padding:8px 10px; margin-bottom:6px; }
+#rehaflex-context-proposal .rf-visit-top { display:grid; grid-template-columns:48px minmax(0,1fr) 16px; align-items:center; gap:10px; font-weight:600; }
+#rehaflex-context-proposal .rf-visit-top > span { overflow-wrap:anywhere; }
+#rehaflex-context-proposal .rf-meta { display:flex; flex-wrap:wrap; gap:2px 10px; color:var(--rf-muted); font-size:12px; margin-top:3px; }
+#rehaflex-context-proposal .rf-free { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; padding:8px 10px; border:1px dashed var(--rf-line); border-radius:8px; margin-bottom:6px; color:var(--rf-muted); font-size:12px; background:var(--rf-panel); }
+#rehaflex-context-proposal .rf-free button { min-height:28px; padding:3px 8px; font-size:12px; }
+#rehaflex-context-proposal .rf-composer { background:var(--rf-panel); border:1px solid var(--rf-line); border-radius:9px; padding:12px; margin:0 0 14px; }
+#rehaflex-context-proposal .rf-composer-top { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px; }
+#rehaflex-context-proposal .rf-composer-top h3 { margin:0; font-size:15px; }
+#rehaflex-context-proposal .rf-composer .rf-scope { margin-bottom:10px; padding:8px 10px; }
+#rehaflex-context-proposal .rf-summary { margin:0; font-size:13px; }
+#rehaflex-context-proposal .rf-composer label { display:grid; gap:4px; font-size:12px; }
+#rehaflex-context-proposal select { width:100%; min-height:36px; color:var(--rf-text); background:var(--rf-panel); border:1px solid var(--rf-line); border-radius:6px; padding:6px 8px; }
+#rehaflex-context-proposal .rf-example { display:block; text-align:right; font-size:11px; color:var(--rf-muted); margin-top:10px; }
+@media(max-width:420px) { #rehaflex-context-proposal .rf-content { padding:12px; } #rehaflex-context-proposal .rf-chrome { padding:10px 12px; } #rehaflex-context-proposal .rf-scope { padding:10px; } #rehaflex-context-proposal h2 { font-size:18px; } }
+@media(pointer:coarse) { #rehaflex-context-proposal button, #rehaflex-context-proposal .rf-free button { min-height:44px; } #rehaflex-context-proposal select { font-size:16px; min-height:44px; } }
+</style>
+<div id="rehaflex-context-proposal">
+  <div class="rf-product">
+    <div class="rf-chrome"><span class="rf-brand">REHAFLEX</span><span class="rf-account">Přihlášena: Jana Nováková</span></div>
+    <div class="rf-content">
+      <div class="rf-switch" role="group" aria-label="Čí plán zobrazit">
+        <button type="button" data-mode="own" aria-pressed="false"><span class="rf-dot" aria-hidden="true"></span>Můj plán</button>
+        <button type="button" data-mode="other" aria-pressed="true"><span class="rf-dot" aria-hidden="true"></span>Petra</button>
+        <button type="button" data-mode="both" aria-pressed="false">Obě</button>
+      </div>
+      <div class="rf-scope" data-scope="other" data-context aria-live="polite">
+        <div><span class="rf-scope-label" data-context-label>Plán kolegyně</span><h2 data-context-name>Petra Svobodová</h2></div>
+        <button type="button" class="rf-back" data-back>← Můj plán</button>
+      </div>
+      <div class="rf-day"><span class="rf-day-label">Úterý 29. září</span><button type="button" class="rf-book" data-book>+ Objednat u Petry</button></div>
+      <section class="rf-composer" data-composer aria-label="Náhled objednání" hidden>
+        <div class="rf-composer-top"><h3>Objednat pacienta</h3><button type="button" data-close>Zavřít</button></div>
+        <div class="rf-scope" data-target-scope data-scope="other"><div><span class="rf-scope-label" data-target-label>Objednáváte ke kolegyni</span><strong data-target-name>Petra Svobodová</strong></div></div>
+        <label data-target-picker hidden>Terapeutka<select data-target-select><option value="">Vyberte terapeutku</option><option value="own">Jana Nováková · já</option><option value="other">Petra Svobodová · kolegyně</option></select></label>
+        <p class="rf-summary" data-target-summary>29. 9. · 10:30–11:15 · Petra Svobodová</p>
+      </section>
+      <section class="rf-agenda" data-owner="own" aria-label="Plán Jany Novákové" hidden>
+        <p class="rf-group-title">Jana Nováková · já</p>
+        <div class="rf-visit"><div class="rf-visit-top"><time>08:00</time><span>Eva Malá</span><span aria-hidden="true">⋯</span></div><div class="rf-meta"><span>45 min</span><span>777 ••• 123</span><span>1972</span><span>111</span></div></div>
+        <div class="rf-visit"><div class="rf-visit-top"><time>09:00</time><span>Petr Veselý</span><span aria-hidden="true">⋯</span></div><div class="rf-meta"><span>60 min</span><span>606 ••• 456</span><span>Bez pojišťovny</span></div></div>
+        <div class="rf-free"><span>10:30–12:00 · Volno</span><button type="button" data-slot-owner="own">+ Objednat</button></div>
+      </section>
+      <section class="rf-agenda" data-owner="other" aria-label="Plán Petry Svobodové">
+        <p class="rf-group-title">Petra Svobodová · kolegyně</p>
+        <div class="rf-visit"><div class="rf-visit-top"><time>08:30</time><span>Alena Dvořáková</span><span aria-hidden="true">⋯</span></div><div class="rf-meta"><span>45 min</span><span>728 ••• 789</span><span>1968</span><span>205</span></div></div>
+        <div class="rf-visit"><div class="rf-visit-top"><time>09:30</time><span>Tomáš Černý</span><span aria-hidden="true">⋯</span></div><div class="rf-meta"><span>45 min</span><span>603 ••• 321</span><span>Bez pojišťovny</span></div></div>
+        <div class="rf-free"><span>10:30–12:00 · Volno</span><button type="button" data-slot-owner="other">+ Objednat</button></div>
+      </section>
+      <small class="rf-example">UX návrh · ukázkové údaje</small>
+    </div>
+  </div>
+</div>
+<script>
+(() => {
+  const root = document.getElementById('rehaflex-context-proposal');
+  const context = root.querySelector('[data-context]');
+  const title = root.querySelector('[data-context-name]');
+  const label = root.querySelector('[data-context-label]');
+  const back = root.querySelector('[data-back]');
+  const book = root.querySelector('[data-book]');
+  const composer = root.querySelector('[data-composer]');
+  const targetScope = root.querySelector('[data-target-scope]');
+  const targetName = root.querySelector('[data-target-name]');
+  const targetLabel = root.querySelector('[data-target-label]');
+  const picker = root.querySelector('[data-target-picker]');
+  const select = root.querySelector('[data-target-select]');
+  const summary = root.querySelector('[data-target-summary]');
+  const modes = {
+    own: { label:'Můj plán', name:'Jana Nováková', book:'+ Objednat u mě' },
+    other: { label:'Plán kolegyně', name:'Petra Svobodová', book:'+ Objednat u Petry' },
+    both: { label:'Společný přehled', name:'Obě terapeutky', book:'+ Objednat pacienta' }
+  };
+  let mode = 'other';
+  function setMode(next) {
+    mode = next;
+    const state = modes[mode];
+    context.dataset.scope = mode;
+    label.textContent = state.label;
+    title.textContent = state.name;
+    book.textContent = state.book;
+    back.hidden = mode === 'own';
+    composer.hidden = true;
+    root.querySelectorAll('[data-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
+    root.querySelectorAll('[data-owner]').forEach(group => {
+      group.hidden = mode !== 'both' && group.dataset.owner !== mode;
+      group.querySelector('.rf-group-title').hidden = mode !== 'both';
+    });
+  }
+  function setTarget(target) {
+    targetScope.hidden = !target;
+    summary.hidden = !target;
+    if (!target) return;
+    targetScope.dataset.scope = target;
+    targetName.textContent = modes[target].name;
+    targetLabel.textContent = target === 'own' ? 'Objednáváte do svého plánu' : 'Objednáváte ke kolegyni';
+    summary.textContent = '29. 9. · 10:30–11:15 · ' + modes[target].name;
+  }
+  function openBooking(target) {
+    composer.hidden = false;
+    picker.hidden = Boolean(target);
+    select.value = target || '';
+    setTarget(target);
+    if (!target) select.focus();
+  }
+  root.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
+  root.querySelectorAll('[data-slot-owner]').forEach(button => button.addEventListener('click', () => openBooking(button.dataset.slotOwner)));
+  back.addEventListener('click', () => setMode('own'));
+  book.addEventListener('click', () => openBooking(mode === 'both' ? '' : mode));
+  root.querySelector('[data-close]').addEventListener('click', () => { composer.hidden = true; book.focus(); });
+  select.addEventListener('change', () => setTarget(select.value));
+  setMode('other');
+})();
+</script>
